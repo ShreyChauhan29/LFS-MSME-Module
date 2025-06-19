@@ -1,4 +1,6 @@
-tableextension 71405 LFS_MSME_PurchRcptHdr extends "Purch. Rcpt. Header"
+namespace MSMEModule.MSMEModule;
+using Microsoft.Purchases.History;
+tableextension 71403 "LFS Purchase Invoice HeaderExt" extends "Purch. Inv. Header"
 {
     fields
     {

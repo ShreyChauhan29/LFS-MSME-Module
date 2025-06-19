@@ -1,6 +1,6 @@
 namespace Microsoft.Purchases.Vendor;
 using Microsoft.Purchases.Setup;
-pageextension 71405 LFS_MSME_Vendor_Card extends "Vendor Card"
+pageextension 71405 "LFS Vendor Card Ext." extends "Vendor Card"
 {
     layout
     {
@@ -86,7 +86,7 @@ pageextension 71405 LFS_MSME_Vendor_Card extends "Vendor Card"
     end;
 
     var
-        MakeFieldsEdit: Boolean;
+        // MakeFieldsEdit: Boolean;
         MSMEDetailsVisible: Boolean;
         MSMEType_N_No_Editable: Boolean;
 

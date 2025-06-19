@@ -1,4 +1,6 @@
-tableextension 71408 LFS_MSME_VendorLedgerEntry extends "Vendor Ledger Entry"
+namespace MSMEModule.MSMEModule;
+using Microsoft.Purchases.History;
+tableextension 71406 "LFS Return Shipment Header Ext" extends "Return Shipment Header"
 {
     fields
     {

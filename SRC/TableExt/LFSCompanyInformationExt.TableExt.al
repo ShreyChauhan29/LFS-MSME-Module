@@ -1,4 +1,6 @@
-tableextension 71401 LFS_MSME_Company_Info extends "Company Information"
+namespace MSMEModule.MSMEModule;
+using Microsoft.Foundation.Company;
+tableextension 71401 "LFS Company Information Ext." extends "Company Information"
 {
     fields
     {
@@ -12,6 +14,5 @@ tableextension 71401 LFS_MSME_Company_Info extends "Company Information"
             DataClassification = CustomerContent;
             Caption = 'MSME Type';
         }
-
     }
 }

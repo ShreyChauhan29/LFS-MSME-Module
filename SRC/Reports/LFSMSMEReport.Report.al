@@ -1,3 +1,7 @@
+namespace MSMEModule.MSMEModule;
+using Microsoft.Purchases.Payables;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Foundation.Company;
 report 71400 "LFS MSME Report"
 {
     ApplicationArea = All;
@@ -12,59 +16,45 @@ report 71400 "LFS MSME Report"
             DataItemTableView = sorting("Posting Date") order(ascending);
             column(CompanyName; CompanyInfo.Name)
             {
-
             }
             column(Vendor_Name; "Vendor Name")
             {
-
             }
             column(PANNo; PANNo)
             {
-
             }
             column(External_Document_No_; "External Document No.")
             {
-
             }
             column(Document_Date; "Document Date")
             {
-
             }
             column(Original_Amt___LCY_; "Original Amt. (LCY)")
             {
-
             }
             column(PostingDateDetVenLedEntry; PostingDateDetVenLedEntry)
             {
-
             }
             column(DelayBeyondDays; DelayBeyondDays)
             {
-
             }
             column(StartDate; StartDate)
             {
-
             }
             column(EndDate; EndDate)
             {
-
             }
             column(Posting_Date; "Posting Date")
             {
-
             }
             column(MSMEBoolean; MSMEBoolean)
             {
-
             }
             column(PaidOn; DetailedVendorLedgEntry."Posting Date")
             {
-
             }
             column(SumOrginalAmtLCY_VLE; SumOrginalAmtLCY_VLE)
             {
-
             }
             trigger OnPreDataItem()
             begin
@@ -140,7 +130,7 @@ report 71400 "LFS MSME Report"
 
     var
         CompanyInfo: Record "Company Information";
-        Vendor: Record Vendor;
+        // Vendor: Record Vendor;
         DetailedVendorLedgEntry: Record "Detailed Vendor Ledg. Entry";
         PANNo: Text;
         PostingDateDetVenLedEntry: Date;

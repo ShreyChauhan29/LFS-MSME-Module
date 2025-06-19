@@ -1,4 +1,6 @@
-tableextension 71403 LFS_MSME_PurchInvHeader extends "Purch. Inv. Header"
+namespace MSMEModule.MSMEModule;
+using Microsoft.Purchases.Document;
+tableextension 71402 "LFS Purchase Header Ext." extends "Purchase Header"
 {
     fields
     {

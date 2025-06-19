@@ -1,4 +1,6 @@
-tableextension 71409 LFS_MSME_Warehouse_ReceiptHdr extends "Warehouse Receipt Header"
+namespace MSMEModule.MSMEModule;
+using Microsoft.Warehouse.Document;
+tableextension 71409 "LFS Warehouse ReceiptHeaderExt" extends "Warehouse Receipt Header"
 {
     fields
     {

@@ -1,4 +1,7 @@
-pageextension 71406 LFS_MSME_Vendor_LedEntries extends "Vendor Ledger Entries"
+namespace MSMEModule.MSMEModule;
+using Microsoft.Purchases.History;
+using Microsoft.Purchases.Setup;
+pageextension 71403 "LFS Posted Purchase Inv. Ext" extends "Posted Purchase Invoice"
 {
     layout
     {
@@ -7,9 +10,10 @@ pageextension 71406 LFS_MSME_Vendor_LedEntries extends "Vendor Ledger Entries"
             field("LFS MSME Due Date"; Rec."LFS MSME Due Date")
             {
                 ApplicationArea = All;
+                ToolTip = 'Specifies the MSME Due Date';
                 Visible = MSMEDetailsVisible;
-                ToolTip = 'Specifies the value of the MSME Due Date field.';
             }
+
         }
     }
     trigger OnOpenPage()

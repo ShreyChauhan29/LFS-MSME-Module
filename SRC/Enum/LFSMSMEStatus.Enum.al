@@ -1,4 +1,5 @@
-enum 71400 "MSME Status"
+namespace MSMEModule.MSMEModule;
+enum 71400 "LFS MSME Status"
 {
     Extensible = true;
     value(0; " ")

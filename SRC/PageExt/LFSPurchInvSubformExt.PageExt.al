@@ -1,8 +1,7 @@
 namespace MSMEModule.MSMEModule;
 
 using Microsoft.Purchases.Document;
-
-pageextension 71407 LFS_MSME_PurchInvSubfrom extends "Purch. Invoice Subform"
+pageextension 71407 "LFS Purch. Inv. Subform Ext" extends "Purch. Invoice Subform"
 {
     layout
     {
@@ -11,6 +10,7 @@ pageextension 71407 LFS_MSME_PurchInvSubfrom extends "Purch. Invoice Subform"
             field("Receipt No."; Rec."Receipt No.")
             {
                 ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Receipt No. field.';
             }
         }
     }

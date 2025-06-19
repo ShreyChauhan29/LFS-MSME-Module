@@ -1,4 +1,7 @@
-tableextension 71407 LFS_MSME_Vendor extends Vendor
+namespace MSMEModule.MSMEModule;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Finance.Dimension;
+tableextension 71407 "LFS Vendor Ext." extends Vendor
 {
     fields
     {
@@ -23,7 +26,7 @@ tableextension 71407 LFS_MSME_Vendor extends Vendor
             DataClassification = CustomerContent;
             Caption = 'MSME No.';
         }
-        field(71402; "LFS MSME Status"; Enum "MSME Status")
+        field(71402; "LFS MSME Status"; Enum "LFS MSME Status")
         {
             DataClassification = CustomerContent;
             Caption = 'MSME Status';

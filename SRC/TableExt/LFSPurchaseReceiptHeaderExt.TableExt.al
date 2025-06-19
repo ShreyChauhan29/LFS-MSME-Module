@@ -1,4 +1,6 @@
-tableextension 71402 LFS_MSME_Purchase_Header extends "Purchase Header"
+namespace MSMEModule.MSMEModule;
+using Microsoft.Purchases.History;
+tableextension 71405 "LFS Purchase Receipt HeaderExt" extends "Purch. Rcpt. Header"
 {
     fields
     {

@@ -1,4 +1,6 @@
-pageextension 71400 LFS_MSME_PurchPayablesPage extends "Purchases & Payables Setup"
+namespace MSMEModule.MSMEModule;
+using Microsoft.Purchases.Setup;
+pageextension 71400 "LFS Purch. & Payable Setup Ext" extends "Purchases & Payables Setup"
 {
     layout
     {
@@ -15,7 +17,6 @@ pageextension 71400 LFS_MSME_PurchPayablesPage extends "Purchases & Payables Set
                     begin
                         MSMEActivate1();
                     end;
-
                 }
                 field("LFS MSME Payment Period"; Rec."LFS MSME Payment Period")
                 {
@@ -28,7 +29,6 @@ pageextension 71400 LFS_MSME_PurchPayablesPage extends "Purchases & Payables Set
     }
     trigger OnOpenPage()
     begin
-
         MSMEActivate2();
     end;
 
@@ -43,14 +43,10 @@ pageextension 71400 LFS_MSME_PurchPayablesPage extends "Purchases & Payables Set
     //     MSMEActivate1();
     // end;
 
-
-
     var
         MSMEActivate: Boolean;
 
     procedure MSMEActivate1()
-    var
-        myInt: Integer;
     begin
         if Rec."LFS Activate MSME" = true then begin
             MSMEActivate := true;
@@ -64,16 +60,12 @@ pageextension 71400 LFS_MSME_PurchPayablesPage extends "Purchases & Payables Set
     end;
 
     procedure MSMEActivate2()
-    var
-        myInt: Integer;
     begin
-        if Rec."LFS Activate MSME" = true then begin
-            MSMEActivate := true;
-        end
-        else begin
+        if Rec."LFS Activate MSME" = true then
+            MSMEActivate := true
+        else
             MSMEActivate := false;
-            // Rec.Validate("LFS MSME Payment Period",);
-        end;
+        // Rec.Validate("LFS MSME Payment Period",);
     end;
 }
 

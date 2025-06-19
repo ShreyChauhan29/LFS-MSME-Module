@@ -1,4 +1,13 @@
-codeunit 71400 LFS_MSME_EventSubscribers
+namespace MSMEModule.MSMEModule;
+using Microsoft.Purchases.Posting;
+using Microsoft.Purchases.Setup;
+using Microsoft.Purchases.Payables;
+using Microsoft.Inventory.Posting;
+using Microsoft.Purchases.History;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Finance.GeneralLedger.Posting;
+using Microsoft.Purchases.Document;
+codeunit 71400 "LFS MSME EventSubscribers"
 {
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnAfterPostInvoice', '', false, false)]  //Finance

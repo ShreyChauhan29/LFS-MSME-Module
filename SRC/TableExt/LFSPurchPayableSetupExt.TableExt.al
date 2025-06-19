@@ -1,4 +1,7 @@
-tableextension 71400 LFS_MSME_PurchPayablesSetup extends "Purchases & Payables Setup"
+namespace MSMEModule.MSMEModule;
+using Microsoft.Purchases.Setup;
+using Microsoft.Finance.Dimension;
+tableextension 71400 "LFS Purch. & Payable Setup Ext" extends "Purchases & Payables Setup"
 {
     fields
     {
@@ -16,7 +19,7 @@ tableextension 71400 LFS_MSME_PurchPayablesSetup extends "Purchases & Payables S
             var
                 DimensionRec: Record Dimension;
                 dimensionValue: Record "Dimension Value";
-                vendorTypeDimFound: Boolean;
+                // vendorTypeDimFound: Boolean;
                 DefaultDimension: Record "Default Dimension";
 
             begin
@@ -66,42 +69,6 @@ tableextension 71400 LFS_MSME_PurchPayablesSetup extends "Purchases & Payables S
                     end;
                 end;
             end;
-            //     if Dimension.Code = 'VENDOR TYPE' then begin
-            //         dimensionValue.Reset();
-            //         dimensionValue.SetRange("Dimension Code", Dimension.Code);
-            //         dimensionValue.SetRange(Code, 'OTHERS');
-            //         if not dimensionValue.FindFirst() then begin
-            //             dimensionValue.Init();
-            //             dimensionValue.Code := 'OTHERS';
-            //             dimensionValue.Validate(Code, 'OTHERS');
-            //             dimensionValue.Insert();
-            //         end;
-
-            //         dimensionValue.Reset();
-            //         dimensionValue.SetRange("Dimension Code", Dimension.Code);
-            //         dimensionValue.SetRange(Code, 'MSME');
-            //         if not dimensionValue.FindFirst() then begin
-            //             dimensionValue.Init();
-            //             dimensionValue.Code := 'MSME';
-            //             dimensionValue.Validate(Code, 'MSME');
-            //             dimensionValue.Insert();
-            //         end;
-            //     end;
-
         }
-
     }
-    // var
-    //     MSMEActivate: Boolean;
-
-    // procedure MSMEActivate1()
-    // var
-    //     myInt: Integer;
-    // begin
-    //     if Rec."LFS Activate MSME" = true then
-    //         MSMEActivate := true
-    //     else
-    //         MSMEActivate := false;
-    // end;
-
 }

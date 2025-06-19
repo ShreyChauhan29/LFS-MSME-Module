@@ -1,4 +1,6 @@
-tableextension 71404 LFS_MSME_PurchCrMemoHdr extends "Purch. Cr. Memo Hdr."
+namespace MSMEModule.MSMEModule;
+using Microsoft.Purchases.Payables;
+tableextension 71408 "LFS Vendor Ledger Entry Ext." extends "Vendor Ledger Entry"
 {
     fields
     {

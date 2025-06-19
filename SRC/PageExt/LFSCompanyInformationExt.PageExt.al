@@ -1,4 +1,7 @@
-pageextension 71402 LFS_MSME_CompanyInformation extends "Company Information"
+namespace MSMEModule.MSMEModule;
+using Microsoft.Foundation.Company;
+using Microsoft.Purchases.Setup;
+pageextension 71402 "LFS Company Information Ext" extends "Company Information"
 {
     layout
     {

@@ -1,4 +1,6 @@
-tableextension 71406 LFS_MSME_ReturnShpmtHdr extends "Return Shipment Header"
+namespace MSMEModule.MSMEModule;
+using Microsoft.Purchases.History;
+tableextension 71404 "LFS Purchase CreditMemo HdrExt" extends "Purch. Cr. Memo Hdr."
 {
     fields
     {
