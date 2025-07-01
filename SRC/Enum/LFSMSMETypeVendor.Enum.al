@@ -19,9 +19,4 @@ enum 71401 "LFS MSME Type Vendor"
     {
         Caption = 'Medium';
     }
-    value(4; "Not An MSME")
-    {
-        Caption = 'Not An MSME';
-    }
-
 }
