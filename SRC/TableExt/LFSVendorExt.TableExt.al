@@ -1,6 +1,7 @@
 namespace MSMEModule.MSMEModule;
 using Microsoft.Purchases.Vendor;
 using Microsoft.Finance.Dimension;
+using Microsoft.Purchases.Setup;
 tableextension 71407 "LFS Vendor Ext." extends Vendor
 {
     fields
@@ -32,55 +33,57 @@ tableextension 71407 "LFS Vendor Ext." extends Vendor
             Caption = 'MSME Status';
             trigger OnValidate()
             var
+                PurchasePayable: Record "Purchases & Payables Setup";
                 dimension: Record "Default Dimension";
                 vendorTypeDimFound: Boolean;
             begin
-                if Rec."LFS MSME Status" = Rec."LFS MSME Status"::Registerd then begin
-                    dimension.Reset();
-                    dimension.SetRange("No.", Rec."No.");
-                    dimension.SetRange("Table ID", 23);
-                    dimension.SetRange("Dimension Code", 'VENDOR TYPE');
-                    vendorTypeDimFound := dimension.FindFirst();
-                    if vendorTypeDimFound then begin
-                        if dimension."Dimension Value Code" = 'OTHERS' then begin
-                            dimension."Dimension Value Code" := 'MSME';
+                PurchasePayable.Get();
+                if (PurchasePayable."LFS MSME Dimension Code" <> '') and (PurchasePayable."LFS MSME Dimensions Value" <> '') and (PurchasePayable."LFS Non-MSME Dimensions Value" <> '') then
+                    if Rec."LFS MSME Status" = Rec."LFS MSME Status"::Registerd then begin
+                        dimension.Reset();
+                        dimension.SetRange("No.", Rec."No.");
+                        dimension.SetRange("Table ID", 23);
+                        dimension.SetRange("Dimension Code", PurchasePayable."LFS MSME Dimension Code");
+                        vendorTypeDimFound := dimension.FindFirst();
+                        if vendorTypeDimFound then begin
+                            if dimension."Dimension Value Code" = PurchasePayable."LFS Non-MSME Dimensions Value" then begin
+                                dimension."Dimension Value Code" := PurchasePayable."LFS MSME Dimensions Value";
+                                dimension."Value Posting" := dimension."Value Posting"::"Same Code";
+                                dimension.Modify();
+                            end;
+                        end else begin
+                            dimension.Init();
+                            dimension."Table ID" := 23;
+                            dimension."No." := Rec."No.";
+                            dimension."Dimension Code" := PurchasePayable."LFS MSME Dimension Code";
+                            dimension."Dimension Value Code" := PurchasePayable."LFS MSME Dimensions Value";
                             dimension."Value Posting" := dimension."Value Posting"::"Same Code";
-                            dimension.Modify();
+                            dimension.Insert();
                         end;
                     end else begin
-                        dimension.Init();
-                        dimension."Table ID" := 23;
-                        dimension."No." := Rec."No.";
-                        dimension."Dimension Code" := 'VENDOR TYPE';
-                        dimension."Dimension Value Code" := 'MSME';
-                        dimension."Value Posting" := dimension."Value Posting"::"Same Code";
-                        dimension.Insert();
-                    end;
-                end else begin
-                    dimension.Reset();
-                    dimension.SetRange("No.", Rec."No.");
-                    dimension.SetRange("Table ID", 23);
-                    dimension.SetRange("Dimension Code", 'VENDOR TYPE');
-                    vendorTypeDimFound := dimension.FindFirst();
+                        dimension.Reset();
+                        dimension.SetRange("No.", Rec."No.");
+                        dimension.SetRange("Table ID", 23);
+                        dimension.SetRange("Dimension Code", PurchasePayable."LFS MSME Dimension Code");
+                        vendorTypeDimFound := dimension.FindFirst();
 
-                    if vendorTypeDimFound then begin
-                        if dimension."Dimension Value Code" = 'MSME' then begin
-                            dimension."Dimension Value Code" := 'OTHERS';
+                        if vendorTypeDimFound then begin
+                            if dimension."Dimension Value Code" = PurchasePayable."LFS MSME Dimensions Value" then begin
+                                dimension."Dimension Value Code" := PurchasePayable."LFS Non-MSME Dimensions Value";
+                                dimension."Value Posting" := dimension."Value Posting"::"Same Code";
+                                dimension.Modify();
+                            end;
+                        end else begin
+                            dimension.Init();
+                            dimension."Table ID" := 23;
+                            dimension."No." := Rec."No.";
+                            dimension."Dimension Code" := PurchasePayable."LFS MSME Dimension Code";
+                            dimension."Dimension Value Code" := PurchasePayable."LFS Non-MSME Dimensions Value";
                             dimension."Value Posting" := dimension."Value Posting"::"Same Code";
-                            dimension.Modify();
+                            dimension.Insert();
                         end;
-                    end else begin
-                        dimension.Init();
-                        dimension."Table ID" := 23;
-                        dimension."No." := Rec."No.";
-                        dimension."Dimension Code" := 'VENDOR TYPE';
-                        dimension."Dimension Value Code" := 'OTHERS';
-                        dimension."Value Posting" := dimension."Value Posting"::"Same Code";
-                        dimension.Insert();
                     end;
-                end;
             end;
-
         }
 
     }
