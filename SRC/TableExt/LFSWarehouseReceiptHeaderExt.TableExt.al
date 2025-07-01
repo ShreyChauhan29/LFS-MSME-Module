@@ -4,7 +4,7 @@ tableextension 71409 "LFS Warehouse ReceiptHeaderExt" extends "Warehouse Receipt
 {
     fields
     {
-        field(50001; "LFS MSME Due Date"; Date)
+        field(71400; "LFS MSME Due Date"; Date)
         {
             DataClassification = CustomerContent;
             Editable = false;

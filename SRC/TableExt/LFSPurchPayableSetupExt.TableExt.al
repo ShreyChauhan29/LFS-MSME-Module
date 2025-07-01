@@ -5,13 +5,13 @@ tableextension 71400 "LFS Purch. & Payable Setup Ext" extends "Purchases & Payab
 {
     fields
     {
-        field(50000; "LFS MSME Payment Period"; DateFormula)
+        field(71400; "LFS MSME Payment Period"; DateFormula)
         {
             DataClassification = CustomerContent;
             Caption = 'MSME Payment Period';
 
         }
-        field(50001; "LFS Activate MSME"; Boolean)
+        field(71401; "LFS Activate MSME"; Boolean)
         {
             DataClassification = CustomerContent;
             Caption = 'Activate MSME';
@@ -73,22 +73,22 @@ tableextension 71400 "LFS Purch. & Payable Setup Ext" extends "Purchases & Payab
                 end;
             end;
         }
-        field(50002; "LFS MSME Dimension Code"; Code[10])
+        field(71402; "LFS MSME Dimension Code"; Code[10])
         {
             DataClassification = CustomerContent;
             Caption = 'MSME Dimension Code';
         }
-        field(50003; "LFS MSME Dimensions Value"; Code[10])
+        field(71403; "LFS MSME Dimensions Value"; Code[10])
         {
             DataClassification = CustomerContent;
             Caption = 'MSME Dimensions Value';
         }
-        field(50004; "LFS Non-MSME Dimensions Value"; Code[10])
+        field(71404; "LFS Non-MSME Dimensions Value"; Code[10])
         {
             DataClassification = CustomerContent;
             Caption = 'Non-MSME Dimensions Value';
         }
-        field(50005; "LFS Due Date Calc."; Option)
+        field(71405; "LFS Due Date Calc."; Option)
         {
             DataClassification = CustomerContent;
             Caption = 'Due Date Calc';
